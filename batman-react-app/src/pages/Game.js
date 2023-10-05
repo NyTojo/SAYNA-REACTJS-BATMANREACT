@@ -40,97 +40,91 @@ const Game = () => {
       question: "Quel est l'autre nom de l'Homme-Mystère ?",
       choices: ["Le Sphinx", "Saphir", "Le Joker"],
       answer: "Le Sphinx",
-      image:  image ,
+      image: [image],
     },
     {
       question: "Quel est l'ancienne proffession de Harley Quinn ?",
       choices: ["infirmiere", "Psychiatre", "Dentiste"],
       answer: "Psychiatre",
-      image:  image2 ,
+      image: [image2],
     },
     {
       question: "Quel est l'objet fétiche de Double Face ?",
       choices: ["Une pièce", "Un livre", "Un couteau"],
       answer: "Une pièce",
-      image:  image3 
+      image: [image3]
     },
     {
       question: "Qui a produit Batman en 1964 ?",
       choices: ["Stanley Kubrick", "Andy Warhol", "Peter Jackson"],
       answer: "Andy Warhol",
-      image:  image4 
+      image: [image4]
     },
     {
       question: "Batman c'est aussi le nom d'une ville en...",
       choices: ["Turquie", "Islande", "Allemagne"],
       answer: "Turquie",
-      image:  image5 
+      image: [image5]
     },
     {
       question: "Quel vilain apparaît pour la première fois dans le Batman?",
       choices: ["Le Pingouin", "Ra's al Ghul", "Poison Ivy"],
       answer: "Ra's al Ghul",
-      image:  image6 ,
-      image2:  image7 ,
-      image3:  image8 
+      images: [image6, image7, image8]
     },
     {
       question: "Quelle ville Batman défend-il ?",
       choices: ["Gotham City", "Starling City", "Hell's Kitchen"],
       answer: "Gotham City",
-      image:  image9 
+      image: [image9]
     },
     {
       question: "Tim Burton a réalisé deux Batman, qui jouait Batman ?",
       choices: ["Georges Clooney", "Val Kilmer", "Michael Keaton"],
       answer: "Michael Keaton",
-      image:  image10 
+      image: [image10]
     },
     {
       question: "Dans son premier Batman (1989) Jack Nicholson jouait :",
       choices: ["Le Pingouin", "L'Homme Mystère", "Le Joker"],
       answer: "Le Joker",
-      image:  image11 ,
-      image2:  image12 ,
-      image3:  image13 
+      images: [image11, image12, image13]
     },
     {
       question: "Qui est Jonathan Crane ?",
       choices: ["L'Épouvantail", "Le Joker", "Hugo Strange"],
       answer: "L'Épouvantail",
-      image:  image14 ,
-      image2:  image15 ,
-      image3:  image16 
+      images: [image14, image15, image16]
     },
     {
       question: "Qui est l'interprète de Catwoman dans le nouveau Batman de Matt Reeves (2022) ?",
       choices: ["Emma Watson", "Gigi Hadid", "Lola Iolani Momoa", "Zoë Kravitz"],
       answer: "Zoë Kravitz",
-      image:  image17 
+      image: [image17]
     },
     {
       question: "Quel est le prénom des parents du jeune Bruce Wayne ?",
       choices: ["Thomas et Martha", "Elaine et Georges", "Martha et James"],
       answer: "Thomas et Martha",
-      image:  image18 
+      image: [image18]
     },
     {
       question: "Qui interprète le Joker en 2008 ?",
       choices: ["Heath Ledger", "Haeth Ledger", "Heath Ledger"],
       answer: "Heath Ledger",
-      image:  image19 
+      image: [image19]
     },
     {
       question: "En quelle année Robin fait-il sa première apparition ?",
       choices: ["1940", "1939", "1941"],
       answer: "1940",
-      image:  image20 
+      image: [image20]
     },
     {
       question: "Qui est la fille de Batman et Catwoman (Earth-2) ?",
       choices: ["Oracle", "Huntress", "Black Canary"],
       answer: "Huntress",
-      image:  image21 
+      image: [image21]
     }
   ];
 
@@ -141,68 +135,50 @@ const Game = () => {
   };
 
   const loadQuestion = () => {
-    const currentQuestionData = questions[currentQuestion]; // Obtenir les données de la question actuelle
+    const currentQuestionData = questions[currentQuestion];
     setCurrentQuestionData(currentQuestionData);
     const question = currentQuestionData.question;
     const choices = currentQuestionData.choices;
-    const image = currentQuestionData.image;
-    const image2 = currentQuestionData.image2;
-    const image3 = currentQuestionData.image3;
-
-    // Vérifier si les éléments existent avant de les mettre à jour
+    const images = currentQuestionData.images || []; // Utilisez un tableau vide par défaut
+  
     const questionElement = document.getElementById('question');
-    const imageContainer = document.querySelector('.image-container');
-    const imageContainer2 = document.querySelector('.image-container-2');
-    const imageContainer3 = document.querySelector('.image-container-3');
+    const imageContainers = document.querySelectorAll('.image-container');
     const choicesDiv = document.getElementById('choices');
-
-    if (questionElement && imageContainer && imageContainer2 && imageContainer3 && choicesDiv) {
-      // Mettre à jour l'interface utilisateur avec les données de la question
+  
+    if (questionElement && imageContainers.length === images.length && choicesDiv) {
       questionElement.textContent = question;
-
-      // Mettre à jour la première image de la question
-      const imageElement = document.createElement('img');
-      imageElement.src = image;
-      imageElement.alt = "Question image";
-      imageContainer.innerHTML = ''; // Effacer l'image précédente
-      imageContainer.appendChild(imageElement);
-
-      // Mettre à jour la deuxième image de la question
-      const imageElement2 = document.createElement('img');
-      imageElement2.src = image2;
-      imageElement2.alt = "Question image 2";
-      imageContainer2.innerHTML = ''; // Effacer l'image précédente
-      imageContainer2.appendChild(imageElement2);
-
-      // Mettre à jour la troisième image de la question
-      const imageElement3 = document.createElement('img');
-      imageElement3.src = image3;
-      imageElement3.alt = "Question image 3";
-      imageContainer3.innerHTML = ''; // Effacer l'image précédente
-      imageContainer3.appendChild(imageElement3);
-
+  
+      // Mettre à jour les images de la question
+      for (let i = 0; i < images.length; i++) {
+        const imageElement = document.createElement('img');
+        imageElement.src = images[i];
+        imageElement.alt = `Question image ${i + 1}`;
+        imageContainers[i].innerHTML = '';
+        imageContainers[i].appendChild(imageElement);
+      }
+  
       // Mettre à jour les choix de réponse
       choicesDiv.innerHTML = '';
-
+  
       for (let i = 0; i < choices.length; i++) {
         const choiceDiv = document.createElement('div');
         choiceDiv.className = 'qcm';
-
+  
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.id = 'choix' + (i + 1);
-
+  
         const label = document.createElement('label');
         label.htmlFor = 'choix' + (i + 1);
         label.textContent = choices[i];
-
+  
         choiceDiv.appendChild(checkbox);
         choiceDiv.appendChild(label);
         choicesDiv.appendChild(choiceDiv);
       }
     }
   };
-
+  
 
 
   const nextQuestion = () => {
@@ -212,21 +188,21 @@ const Game = () => {
       alert("Veuillez sélectionner au moins une réponse.");
       return;
     }
-  
+
     const playerAnswer = [];
     for (let i = 0; i < selectedChoices.length; i++) {
       playerAnswer.push(selectedChoices[i].nextSibling.textContent);
     }
-  
+
     // Ajouter la réponse du joueur au tableau playerResponses
     setPlayerResponses([...playerResponses, playerAnswer]);
-  
+
     // Réinitialiser les cases à cocher
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach((checkbox) => {
       checkbox.checked = false;
     });
-  
+
     const nextQuestionIndex = currentQuestion + 1;
     if (nextQuestionIndex < totalQuestions) {
       setCurrentQuestion(nextQuestionIndex);
@@ -235,7 +211,7 @@ const Game = () => {
       endQuiz(); // Si toutes les questions ont été posées, terminer le quiz
     }
   };
-  
+
 
   const endQuiz = () => {
     // Calculer le score en comparant les réponses du joueur avec les réponses correctes
@@ -318,9 +294,20 @@ const Game = () => {
               {showQuiz && currentQuestionData && (
                 <div className="jeu">
                   <div className="image-container">
-                    <img className="image-gauche" src={currentQuestionData.image} alt="img" />
+                    {currentQuestionData.image && (
+                      <img className="image-gauche" src={currentQuestionData.image} alt="img" />
+                    )}
                   </div>
-
+                  <div className="image-container-2">
+                    {currentQuestionData.image2 && (
+                      <img className="image-gauche" src={currentQuestionData.image2} alt="img2" />
+                    )}
+                  </div>
+                  <div className="image-container-3">
+                    {currentQuestionData.image3 && (
+                      <img className="image-gauche" src={currentQuestionData.image3} alt="img3" />
+                    )}
+                  </div>
                   <div className="gamebox">
                     <h1>
                       <span className="level">{currentQuestion + 1}</span>/{questions.length}
@@ -358,6 +345,7 @@ const Game = () => {
                   </div>
                 </div>
               )}
+
             </div>
           </section>
         </main>
