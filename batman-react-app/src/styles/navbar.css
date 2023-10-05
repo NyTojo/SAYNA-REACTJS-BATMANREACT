@@ -1,0 +1,36 @@
+.nav-link{
+    color:white;
+    font-size:30px ;
+    font-family: rajdhani;
+ 
+}
+
+.navbar-brand:hover {
+    -webkit-filter: invert(4%) sepia(100%) saturate(1680%) hue-rotate(352deg) brightness(109%) contrast(104%);
+    filter: invert(4%) sepia(100%) saturate(1680%) hue-rotate(352deg) brightness(109%) contrast(104%);
+}
+
+
+.nav-link:hover{
+  color: rgb(255, 216, 216);
+}
+
+.active{
+  font-weight:bolder ;
+  color: red !important;
+}
+  
+nav{
+  background-color: black;
+}
+  
+.navbar-toggler{
+  background-color: black;
+}
+
+nav ul a{
+  color: var(--white-color) ;
+  font-size: 30px;
+  font-family: 'rajdhani';
+  text-decoration: none;
+}

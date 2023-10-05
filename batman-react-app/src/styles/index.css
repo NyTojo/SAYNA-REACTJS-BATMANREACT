@@ -1,0 +1,385 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@font-face {
+  font-family: 'rajdhani';
+  src: url(../police/Rajdhani-Medium.ttf);
+}
+
+@font-face {
+  font-family: 'space-grotesk';
+  src: url(../police/Spacegrotesk.ttf);
+}
+
+/* Styles pour l'ensemble du document */
+html {
+  position: relative;
+  z-index: 1;
+}
+
+body {
+  position: relative;
+  z-index: 2;
+  overflow-x: hidden;
+}
+
+/* Couleurs personnalisées */
+:root {
+  --yellow-color: #FFFF00;
+  --yellow-light: #f8f184;
+  --blue-color: #19587d;
+  --white-color: #fff;
+  --gradient-white: #eddebf67;
+  --gradient-red: #89000978;
+  --black-color: #000;
+}
+
+/* Réinitialisation des styles par défaut */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: 'rajdhani';
+  font-size: 36px;
+  font-weight: 400;
+}
+
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+body {
+  background-color: black;
+  color: var(--white-color);
+  font-family: 'Space-grotesk', sans-serif;
+  font-weight: 300;
+}
+
+.up-bar {
+  border-top: #807e7e7c 2px solid;
+  position: relative;
+  width: 86%;
+  left: 102px;
+}
+
+.left-bar,
+.right-bar {
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background-color: #807e7e7c;
+  z-index: 4;
+}
+
+.left-bar {
+  left: 102px;
+}
+
+.right-bar {
+  right: 88px;
+}
+
+
+h1,
+h2,
+h3,
+p {
+  opacity: 0;
+  position: relative;
+  left: -100%;
+  animation: fade-in 2s ease-out forwards;
+}
+
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    left: -50%;
+  }
+
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+.scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  right: 39px;
+  top: 230px;
+  z-index: 10;
+}
+
+.scroll .social {
+  margin-top: 15px;
+  width: auto;
+}
+
+.scroll img {
+  margin: 0 10px;
+  cursor: pointer;
+  width: 80px;
+}
+
+.scroll img:hover {
+  -webkit-filter: invert(4%) sepia(100%) saturate(1680%) hue-rotate(352deg) brightness(109%) contrast(104%);
+  filter: invert(4%) sepia(100%) saturate(1680%) hue-rotate(352deg) brightness(109%) contrast(104%);
+}
+
+.social-footer img:hover {
+  -webkit-filter: invert(4%) sepia(100%) saturate(1680%) hue-rotate(352deg) brightness(109%) contrast(104%);
+  filter: invert(4%) sepia(100%) saturate(1680%) hue-rotate(352deg) brightness(109%) contrast(104%);
+}
+
+/* Masque les boutons radio */
+
+.form input[type='radio'] {
+  opacity: 0;
+}
+
+
+/* Styles pour le barres de défilement */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #fff;
+  width: 12px;
+}
+
+/* Styles pour iframes */
+
+
+
+/* Styles pour les appareils mobiles */
+@media (max-width: 768px) {
+
+  #batman-cinema .description,
+  #némésis .description,
+  #Alliés .description,
+  #batman-justice-league .description {
+    text-align: justify;
+    font-size: 13px;
+  }
+
+
+  #hero {
+    width: 100%;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-color: #000000;
+    background-size: contain;
+  }
+
+  nav {
+    display: flex;
+  }
+
+  nav ul {
+    display: flex;
+  }
+
+  ul li {
+    display: block;
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+
+  .logo {
+    max-width: 60px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+  }
+
+  .content {
+    width: 100%;
+    padding-top: 100px;
+  }
+
+  .scroll {
+    display: none;
+    position: unset;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    color: #fff;
+    opacity: 1;
+    position: relative;
+    left: 0;
+    animation: none;
+  }
+
+  #batman-cinema img,
+  #némésis img,
+  #Alliés img {
+    height: 200px;
+    width: 150px;
+    margin-left: 0;
+  }
+
+  .up-bar {
+    display: none;
+  }
+
+  .left-bar,
+  .right-bar {
+    display: none;
+  }
+
+  .btn {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .btn{
+    text-decoration: none;
+    color: var(--white-color);
+    font-size: 22px;
+    padding: 10px 40px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background: linear-gradient(80deg, var(--gradient-white), var(--gradient-red));
+    box-shadow: var(--black-color) 15px 15px 50px;
+  }
+
+  #hero .fleche {
+    margin-top: 220px;
+  }
+
+  #multimedia button {
+    top: 0;
+    left: 0;
+    transform: none;
+    margin-top: 10px;
+    margin-left: 0;
+  }
+
+  #multimedia .slider-multimedia {
+    flex-direction: column;
+    width: 100%;
+    margin: 40px 0;
+  }
+
+
+  .video-container {
+    margin-top: 40px;
+  }
+
+
+  #contact .form {
+    width: 100%;
+    margin-left: 0;
+  }
+
+
+  .dropdown {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .form {
+    padding: 20px;
+  }
+
+  .form h2 {
+    font-size: 24px;
+  }
+
+  .form input[type="email"],
+  .form textarea {
+    width: 100%;
+  }
+
+  .form .dropdown span.icon {
+    display: none;
+  }
+
+  .form .dropdown-content {
+    position: static;
+    display: block;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .container .citation-carte {
+    padding: 20px;
+  }
+
+  .container .citation-texte {
+    font-size: 16px;
+  }
+
+  .container .citation-auteur {
+    font-size: 12px;
+  }
+
+  .slider-multimedia {
+    padding: 20px;
+  }
+
+
+  .left,
+  .right {
+    width: 10px;
+    height: 10px;
+  }
+
+  .image-bande-annonce iframe {
+    width: 100%;
+    height: 200px;
+  }
+
+  .form {
+    padding: 20px;
+  }
+
+  .form input[type="email"],
+  .form textarea,
+  .form input[type="submit"] {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .confirmer {
+    font-size: 12px;
+    padding: 5px 10px;
+    width: 20px;
+  }
+
+
+  .titre {
+    font-size: 18px;
+  }
+
+  .imgtxt .superpose,
+  .imgtxt .pose {
+    width: 20px;
+    height: 20px;
+  }
+
+}

@@ -1,0 +1,336 @@
+#hero {
+    background-image: url(../assets/images/Bathome1.png);
+    height: 800px;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-color: black;
+    background-size: cover;
+}
+
+.espace-vertical {
+    height: 65px;
+}
+
+#hero .fleche {
+    display: block;
+    margin: 0 auto;
+    margin-top: 285px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width: 60%;
+    margin: 0 auto;
+    padding-top: 150px;
+}
+
+#hero .titre {
+    margin: 20px 0;
+}
+
+
+.batman-personnage {
+    opacity: 0;
+    position: relative;
+    left: -100%;
+    animation: fade-in 2s ease-out forwards;
+}
+
+/* Styles pour les groupe de boutons */
+
+.btn-group {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* Styles pour les boutons du multimédia */
+#multimedia button {
+    position: relative;
+    top: 155px;
+    background: none;
+    border: none;
+}
+
+#multimedia .right {
+    right: -85%;
+}
+
+#multimedia .left {
+    left: 5%;
+}
+
+/* Styles pour le contenu du slider multimédia */
+#multimedia .slider-multimedia {
+    display: flex;
+    width: 60%;
+    margin: 40px auto;
+}
+
+#multimedia .slider-image {
+    width: 100%;
+}
+
+#multimedia .slider-content {
+    padding: 15px;
+    background: linear-gradient(143deg, rgba(237, 222, 191, 0.4), rgba(25, 88, 125, 0.4) 80%);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    height: 230px;
+}
+
+#multimedia p {
+    font-size: 12px;
+}
+
+#multimedia h2 {
+    font-size: 16px;
+}
+
+#multimedia h3 {
+    font-size: 14px;
+}
+
+#multimedia .yellow {
+    color: var(--yellow-color);
+}
+
+/* Styles pour les boutons gauche et droite lorsqu'ils sont survolés */
+
+.left:hover,
+.right:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Styles pour la video */
+.video-container {
+    text-align: center;
+}
+
+/* Styles pour l'image de la bande d'annonce */
+
+.image-bande-annonce {
+    display: inline-block;
+}
+
+.fleche {
+    margin-bottom: 60px;
+}
+
+.fleche:hover {
+    color: #ffffff;
+}
+
+
+.btn {
+    text-decoration: none;
+    color: var(--white-color);
+    font-size: 22px;
+    padding: 10px 40px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background: linear-gradient(80deg, var(--gradient-white), var(--gradient-red));
+    box-shadow: var(--black-color) 15px 15px 50px;
+}
+
+.btn:hover {
+    background: linear-gradient(80deg, #c0c0c0, #c90000);
+    color: #ffffff;
+}
+
+
+
+.batman-item {
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+}
+
+.batman-item:hover {
+    transform: scale(1.1);
+}
+
+.pochette {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.532);
+    padding-top: 5px;
+    border: 2px solid rgba(73, 72, 72, 0.479);
+    display: none;
+    height: 100px;
+}
+
+.batman-item:hover .pochette {
+    display: block;
+}
+
+.personnage-info {
+    align-items: center;
+    background: linear-gradient(90deg, rgba(237, 222, 191, 0.3) 30%, rgba(137, 0, 8, 0.3) 100%);
+    border-radius: 30px;
+    margin: 20px 40px;
+    width: 80%;
+    height: 60px;
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.personnage-info h3 {
+    font-size: 13px;
+    padding: 15px 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    animation: none;
+    opacity: 100;
+    left: 0%;
+}
+
+.personnage-info p {
+    color: #f8f184;
+    font-weight: normal;
+    font-size: 9px;
+    animation: none;
+    opacity: 100;
+    left: 0%;
+}
+
+.personnage-info .miniature {
+    float: left;
+    display: block;
+    max-width: 70px;
+    margin-top: -20px;
+    margin-left: -20px;
+    border-radius: 50%;
+}
+
+.pochette * {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Styles pour la mise en page de l'image et du texte superposés */
+.imgtxt {
+    position: relative;
+    width: 100%;
+}
+
+.imgtxt {
+    display: inline-flex;
+}
+
+h1 {
+    position: relative;
+    z-index: 1;
+}
+
+/* Styles pour la superposition de contenu */
+.superpose {
+    position: absolute;
+    top: -70px;
+    right: 70px;
+    left: 60px;
+    z-index: 2;
+    width: 150px;
+    height: 150px;
+}
+
+.pose {
+    position: absolute;
+    top: -150px;
+    right: 0px;
+    left: 65%;
+    z-index: 2;
+    width: 500px;
+    height: 250px;
+}
+
+/* Espacement vertical */
+.espace-vertical {
+    height: 65px;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    background-color: rgb(255, 0, 0);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.image-annonce {
+    width: 560px;
+    height: 400px;
+}
+
+
+.video {
+    width: 560px;
+    height: 400px; /* Ajustez la hauteur selon vos besoins */
+    display: block;
+  }
+  
+.hidden {
+    display: none;
+}
+
+.enemies {
+    display: inline-block;
+}
+
+.batman-personnage {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+
+#batman-cinema .titre,
+#batman-justice-league .titre,
+#némésis .titre,
+#Alliés .titre {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 30px 0;
+}
+
+#batman-cinema .description,
+#némésis .description,
+#Alliés .description,
+#batman-justice-league .description {
+    margin-bottom: 40px;
+    text-align: justify;
+    width: 80%;
+    font-size: 21px;
+}
+
+#batman-cinema,
+#batman-justice-league,
+#nemesis,
+#Alliés {
+    margin-top: 40px;
+}
+
+.jl{
+    width: 100%;
+    position: relative;
+    z-index: 5;
+}
+
+.jl .right-bar,
+.jl .left-bar,
+section#contact .right-bar,
+section#contact .left-bar {
+    display: none;
+}
