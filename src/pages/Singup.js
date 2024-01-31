@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Singup.css';
 import { Link, useNavigate } from 'react-router-dom';
-import { userAuth } from '../context/AuthContext';
 
 function Singup() {
   const [email, setEmail] = useState('');
@@ -9,13 +8,13 @@ function Singup() {
   const [error, setError] = useState(''); // Add this line to define the error state
 
   const navigate = useNavigate();
-  const { createUser } = userAuth();
+
 
   const onSubmit = async (e) => {
     e.preventDefault();
     setError(''); // Set the error state to an empty string here
     try {
-      await createUser(email, password);
+      await (email, password);
       navigate('Compte');
     } catch (e) {
       setError(e.message);

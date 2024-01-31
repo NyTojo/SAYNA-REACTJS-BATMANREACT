@@ -9,12 +9,11 @@ import MonCompte from '../pages/MonCompte';
 import NotFoundPage from '../pages/NotFoundPage';
 import Singup from '../pages/Singup';
 import Login from '../pages/Login';
-import { UserProvider } from '../context/AuthContext';
 
 
 function App() {
   return (
-    <UserProvider>
+    
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Layout/>}>
@@ -29,7 +28,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-    </UserProvider>
+
   );
 }
 
